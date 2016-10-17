@@ -26,4 +26,5 @@ directory.
 up a window showing the URL to visit in your browser to interact with
 the running app.
 
-0. Visit my website deployed on Heroku: `https://rottenpotatoes-yyzjin.herokuapp.com/`
+0. Visit [my rotten-potatoes](https://rottenpotatoes-yyzjin.herokuapp.com/)
+ deployed on Heroku.
