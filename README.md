@@ -4,7 +4,7 @@ This app is associated with the free [online
 course](http://www.saas-class.org) and (non-free)
 [ebook](http://www.saasbook.info) Engineering Software as a Service.
 
-To get started:
+To get started (simply copied from original version):
 
 0. [Setup a Cloud9
 environment](https://github.com/saasbook/courseware/wiki/Setting-up-Cloud9)
@@ -25,3 +25,6 @@ directory.
 0. Run `rails server -p $PORT -b $IP` to start the app.  Cloud9 will pop
 up a window showing the URL to visit in your browser to interact with
 the running app.
+
+0. Visit [my rotten-potatoes](https://rottenpotatoes-yyzjin.herokuapp.com/)
+ deployed on Heroku.
