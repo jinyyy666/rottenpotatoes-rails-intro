@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
       @movies = Movie.where({rating: @selected_ratings}).order("release_date" + " " + sort_direction)
       session[:sort] = "release_date"
     else
-      @movies = Movie.where({rating: @selected_ratings})
+      @movies = Movie.all.where({rating: @selected_ratings})
     end
     
   end
@@ -72,7 +72,7 @@ class MoviesController < ApplicationController
   private
   
   def sort_column
-    Movie.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    Movie.column_names.include?(params[:sort]) ? params[:sort] : nil
   end
 
   def sort_direction
