@@ -11,9 +11,9 @@
 %table#movies
   %thead
     %tr
-      %th{:id => 'title_header'}= sortable "title", 'Movie Title' 
+      %th{:class => @css_class_title, :id => 'title_header'}= sortable "title", 'Movie Title' 
       %th Rating
-      %th{:id =>'release_class_header'}= sortable "release_date", "Release Date"
+      %th{:class => @css_class_release, :id => 'release_class_header'}= sortable "release_date", "Release Date"
       %th More Info
   %tbody
     - @movies.each do |movie|

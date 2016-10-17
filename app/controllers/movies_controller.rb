@@ -13,13 +13,32 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    # apply the filters here:
+    
+    # apply the filters here with memorization:
     if params[:ratings] 
       @selected_ratings = params[:ratings].keys
-      @movies = Movie.where({rating: @selected_ratings}).order(sort_column + " " + sort_direction)
+      session[:ratings] = @selected_ratings
+    elsif session[:ratings]
+      # use the stored settings
+      @selected_ratings = session[:ratings]
     else
-      @movies = Movie.all.order(sort_column + " " + sort_direction)
+      # the initial case
+      @selected_ratings = @all_ratings
     end
+    
+    sort = params[:sort] || session[:sort]
+    if sort == "title"
+      @css_class_title = "hilite"
+      @movies = Movie.where({rating: @selected_ratings}).order("title" + " " + sort_direction)
+      session[:sort] = "title"
+    elsif sort == "release_date"
+      @css_class_release = "hilite"
+      @movies = Movie.where({rating: @selected_ratings}).order("release_date" + " " + sort_direction)
+      session[:sort] = "release_date"
+    else
+      @movies = Movie.where({rating: @selected_ratings})
+    end
+    
   end
 
   def new
